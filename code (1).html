@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World War 1 True or False Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        .question p {
+            margin: 0 0 10px 0;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>World War 1 True or False Quiz</h1>
+    <p>Answer each statement as True or False. There are 10 questions. Click "Submit" to see your score!</p>
+    
+    <form id="quizForm">
+        <div class="question">
+            <p>1. World War 1 began in 1914.</p>
+            <input type="radio" name="q1" value="true"> True
+            <input type="radio" name="q1" value="false"> False
+        </div>
+        
+        <div class="question">
+            <p>2. The assassination of Archduke Franz Ferdinand of Austria-Hungary sparked the start of World War 1.</p>
+            <input type="radio" name="q2" value="true"> True
+            <input type="radio" name="q2" value="false"> False
+        </div>
+        
+        <div class="question">
+            <p>3. Germany was the only country involved in World War 1.</p>
+            <input type="radio" name="q3" value="true"> True
+            <input type="radio" name="q3" value="false"> False
+        </div>
+        
+        <div class="question">
+            <p>4. The Treaty of Versailles officially ended World War 1.</p>
+            <input type="radio" name="q4" value="true"> True
+            <input type="radio" name="q4" value="false"> False
+        </div>
+        
+        <div class="question">
+            <p>5. World War 1 was fought exclusively in Europe.</p>
+            <input type="radio" name="q5" value="true"> True
+            <input type="radio" name="q5" value="false"> False
+        </div>
+        
+        <div class="question">
+            <p>6. The United States entered World War 1 in 1917.</p>
+            <input type="radio" name="q6" value="true"> True
+            <input type="radio" name="q6" value="false"> False
+        </div>
+        
+        <div class="question">
+            <p>7. Trench warfare was a prominent feature of World War 1 on the Western Front.</p>
+            <input type="radio" name="q7" value="true"> True
+            <input type="radio" name="q7" value="false"> False
+        </div>
+        
+        <div class="question">
+            <p>8. World War 1 lasted exactly 4 years, from 1914 to 1918.</p>
+            <input type="radio" name="q8" value="true"> True
+            <input type="radio" name="q8" value="false"> False
+        </div>
+        
+        <div class="question">
+            <p>9. Imperialism was one of the main underlying causes of World War 1.</p>
+            <input type="radio" name="q9" value="true"> True
+            <input type="radio" name="q9" value="false"> False
+        </div>
+        
+        <div class="question">
+            <p>10. Poison gas was first widely used as a weapon during World War 1.</p>
+            <input type="radio" name="q10" value="true"> True
+            <input type="radio" name="q10" value="false"> False
+        </div>
+        
+        <button type="button" onclick="checkAnswers()">Submit Answers</button>
+    </form>
+    
+    <div id="result"></div>
+    
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: 'true',   // WWI began in 1914
+                q2: 'true',   // Assassination of Franz Ferdinand
+                q3: 'false',  // Many countries involved
+                q4: 'true',   // Treaty of Versailles ended it
+                q5: 'false',  // Also fought in Africa, Asia, etc.
+                q6: 'true',   // US entered in 1917
+                q7: 'true',   // Trench warfare was key
+                q8: 'true',   // Lasted 1914-1918
+                q9: 'true',   // Imperialism was a cause
+                q10: 'true'   // Poison gas first used in WWI
+            };
+            
+            let score = 0;
+            const form = document.getElementById('quizForm');
+            const resultDiv = document.getElementById('result');
+            
+            for (let i = 1; i <= 10; i++) {
+                const selected = form.elements['q' + i].value;
+                if (selected === answers['q' + i]) {
+                    score++;
+                }
+            }
+            
+            resultDiv.innerHTML = `You got ${score} out of 10 correct!`;
+        }
+    </script>
+</body>
+</html>
